@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Kalkulator online</title>
+</h:head>
+<h:body style="background: url(ti84.jpg); background-size: cover">
+	<b:form id="form"
+		style="background: rgb(139, 69, 19, 0.7);
+			position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+			border-radius: 10px; padding: 5px 20px 10px 20px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+		<h1 style="color: white; white-space: nowrap;">Kalkulator online</h1>
+		<b:inputText id="equation"
+			placeholder="Tu wpisz działanie, np. 2*(3+4)"
+			value="#{kalkulatorJSF.equation}" />
+		<b:commandButton value="Oblicz" look="success" ajax="true"
+			update="result" action="#{kalkulatorJSF.submit()}" />
+		<b:commandButton style="position:absolute;right:20px" value="Czyść"
+			look="warning" ajax="true" update="equation result"
+			action="#{kalkulatorJSF.clear()}" />
+		<b:inputText id="result" style="margin-top:15px" readonly="true"
+			placeholder="Tu zobaczysz wynik" value="#{kalkulatorJSF.result}" />
+	</b:form>
+</h:body>
+</html>
